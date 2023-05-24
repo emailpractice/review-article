@@ -1,0 +1,780 @@
+* {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    /*讓跳轉anchor的時候是滑下去的 而不是直接跳轉*/
+}
+
+a {
+    text-decoration: none
+}
+
+/*ctrl + 滾輪的那種放大 是會很大程度影響排版的。 如果看到liverserver上面
+有異樣，要記得先檢查放大比例是不是100。 不然程式碼調半天白搭。*/
+main {
+    width: min(70ch, 100%-4rem);
+    margin-inline: auto;
+}
+
+img {
+
+    display: block;
+    vertical-align: text-bottom;
+}
+
+.bground_not_blur {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    opacity: 100%;
+    position: fixed;
+    margin: auto;
+    filter: blur(6px);
+    animation-name: blur_out_bg;
+    animation-fill-mode: forwards;
+}
+
+@keyframes blur_out_bg {
+    from {
+        filter: blur(6px);
+
+    }
+
+    to {
+        filter: blur(0px);
+    }
+}
+
+.bground_blur {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    margin: auto;
+    opacity: 100%;
+    animation-duration: 1s;
+    animation-name: blur_in_bg;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes blur_in_bg {
+    from {
+        filter: blur(0px);
+
+    }
+
+    to {
+        filter: blur(6px);
+    }
+}
+
+
+.black_not_overlay {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    border: 3px;
+    opacity: 50%;
+    background-color: black;
+    animation-name: fade_out_overlay;
+    animation-duration: 1s;
+    animation-delay: 90ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes fade_out_overlay {
+    from {
+        opacity: 50%;
+
+    }
+
+    to {
+        opacity: 0%;
+    }
+}
+
+.black_overlay {
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    border: 3px;
+    opacity: 0%;
+    background-color: black;
+    animation-name: fade_in_overlay;
+    animation-duration: 1s;
+    animation-delay: 50ms;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes fade_in_overlay {
+    from {
+        opacity: 0%;
+
+    }
+
+    to {
+        opacity: 50%;
+    }
+}
+
+
+
+.show_logo1 {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    opacity: 0;
+    animation-name: fade_in_logo1;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@media (max-width:1200px) {
+    .show_logo1 {
+        width: 175px;
+        position: absolute;
+        top: 0%;
+        left: 0%;
+        opacity: 0%;
+        animation-name: fade_in_logo1;
+        animation-duration: 0.6s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes fade_in_logo1 {
+        from {
+            opacity: 0%;
+
+        }
+
+        to {
+            opacity: 100%;
+        }
+    }
+}
+
+@keyframes fade_in_logo1 {
+    from {
+        opacity: 0%;
+
+    }
+
+    to {
+        opacity: 100%;
+    }
+}
+
+.not_show_logo1 {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    animation-name: fade_out_logo1;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fade_out_logo1 {
+    from {
+        opacity: 100%;
+
+    }
+
+    to {
+        opacity: 0%;
+    }
+}
+
+.fbicon {
+    width: 75px;
+    position: fixed;
+    top: 3%;
+    right: 1%;
+    background-image: url(./Facebook徽標.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+@media (max-width:1100px) {
+    .fbicon {
+        width: 80px;
+        position: fixed;
+        top: 3%;
+        right: -1%;
+        background-image: url(./Facebook徽標.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+
+
+.anchor_button_order_page {
+    width: 110px;
+    height: 50px;
+    background-color: brown;
+    border-radius: 3px;
+    position: fixed;
+    top: 5%;
+    left: 85%;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    z-index: 1;
+}
+
+.anchor_button_order_page:hover {
+    color: #fff;
+    background-color: #000
+}
+
+@media (max-width:1100px) {
+    .anchor_button_order_page {
+        width: 110px;
+        height: 50px;
+        background-color: brown;
+        border-radius: 3px;
+        position: fixed;
+        top: 5%;
+        left: 80%;
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: aliceblue;
+        z-index: 1;
+    }
+
+}
+
+@media (max-width:768px) {
+    .anchor_button_order_page {
+        width: 110px;
+        height: 50px;
+        background-color: brown;
+        border-radius: 3px;
+        position: fixed;
+        top: 5%;
+        left: 60%;
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: aliceblue;
+        z-index: 1;
+    }
+
+}
+
+
+
+.show_start_your_order_text {
+    position: absolute;
+    background-color: brown;
+    width: 330px;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 4rem;
+    text-align: center;
+    animation-name: fade_in_start_your_order_text;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    opacity: 0%;
+}
+
+@media (max-width:768px) {
+    .show_start_your_order_text {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        background-color: brown;
+        width: 330px;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 4rem;
+        text-align: center;
+        animation-name: fade_in_start_your_order_text;
+        animation-duration: 0.3s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        opacity: 0%;
+    }
+
+    @keyframes fade_in_start_your_order_text {
+        from {
+            opacity: 0%;
+
+        }
+
+        to {
+            opacity: 100%;
+        }
+    }
+
+}
+
+@keyframes fade_in_start_your_order_text {
+    from {
+        opacity: 0%;
+
+    }
+
+    to {
+        opacity: 100%;
+    }
+}
+
+.not_show_start_your_order_text {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    background-color: brown;
+    width: 330px;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 4rem;
+    text-align: center;
+    animation-name: fade_out_start_your_order_text;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    opacity: 0%;
+}
+
+@media (max-width:768px) {
+    .not_show_start_your_order_text {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        background-color: brown;
+        width: 330px;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 4rem;
+        animation-name: fade_out_start_your_order_text;
+        animation-duration: 0.6s;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+        opacity: 0%;
+    }
+
+    @keyframes fade_out_start_your_order_text {
+        from {
+            opacity: 100%;
+
+        }
+
+        to {
+            opacity: 0%;
+        }
+    }
+
+
+}
+
+
+@keyframes fade_out_start_your_order_text {
+    from {
+        opacity: 100%;
+
+    }
+
+    to {
+        opacity: 0%;
+    }
+}
+
+
+
+
+.pls_scroll_down {
+    position: fixed;
+    width: 3px;
+    height: 70px;
+    background-color: goldenrod;
+    animation-name: going_downward;
+    animation-duration: 1.3s;
+    animation-delay: 90ms;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes going_downward {
+    0% {
+
+        left: 50%;
+        bottom: 4%;
+        opacity: 0%;
+    }
+
+
+
+    100% {
+        left: 50%;
+        bottom: -80px;
+        opacity: 100%;
+    }
+}
+
+.pls_scroll_down_not_showed {
+    position: fixed;
+    width: 2px;
+    height: 60px;
+    background-color: goldenrod;
+    animation-name: scroll_down_not_showed;
+    animation-duration: 1.3s;
+    animation-delay: 90ms;
+    animation-iteration-count: 1;
+
+}
+
+@keyframes scroll_down_not_showed {
+    0% {
+
+        opacity: 100%;
+    }
+
+
+
+    100% {
+        opacity: 0%;
+    }
+}
+
+
+.show_scroll_text_vertical {
+    writing-mode: vertical-lr;
+    position: fixed;
+    top: 77%;
+    left: 49%;
+    font-size: 2rem;
+    color: aliceblue;
+    animation-name: show_scroll_text;
+    animation-duration: 0.3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    opacity: 0%;
+}
+
+
+@keyframes show_scroll_text {
+    0% {
+
+        opacity: 0%;
+    }
+
+
+
+    100% {
+
+        opacity: 100%;
+    }
+}
+
+.not_show_scroll_text_vertical {
+    writing-mode: vertical-lr;
+    position: fixed;
+    top: 77%;
+    left: 49%;
+    font-size: 2rem;
+    color: aliceblue;
+    animation-name: not_show_scroll_text;
+    animation-duration: 0.2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes not_show_scroll_text {
+    0% {
+
+        opacity: 100%;
+    }
+
+
+
+    100% {
+
+        opacity: 0%;
+    }
+}
+
+.parser {
+    padding-bottom: 50%;
+}
+
+/*showcase top text    aroma page text  +  tittle    left長度有問題*/
+/*dm us to order也有讓水平需要多滑*/
+
+
+.showcase_toptext {
+    position: absolute;
+    width: 500px;
+    color: aliceblue;
+    font-size: 5rem;
+    left: 50%;
+}
+
+@media (max-width:1200px) {
+    .showcase_toptext {
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        color: aliceblue;
+        font-size: 3rem;
+    }
+}
+
+@media (max-width:768px) {
+    .showcase_toptext {
+        position: absolute;
+        left: 50%;
+        color: aliceblue;
+        font-size: 2rem;
+    }
+}
+
+.text_decorative_line {
+    position: relative;
+    left: 23rem;
+    top: 262px;
+    width: 75px;
+    height: 3px;
+    background-color: white;
+    margin-bottom: 20px;
+}
+
+.text_decorative_line2 {
+    position: relative;
+    left: 23rem;
+
+    width: 75px;
+    height: 3px;
+    background-color: white
+}
+
+.showcase_pic {
+    position: relative;
+    left: 45%;
+
+}
+
+.showcase_pic:hover {
+    opacity: 50%;
+}
+
+.tittle_text {
+    writing-mode: vertical-lr;
+    position: relative;
+    left: 24.2%;
+    top: 320px;
+    color: aliceblue;
+    font-size: 3rem;
+
+}
+
+.brief_intro_text1 {
+    writing-mode: vertical-lr;
+    position: absolute;
+    height: 300px;
+    left: 15%;
+    top: 1150px;
+    color: aliceblue;
+    font-size: 2rem;
+}
+
+.brief_intro_text2 {
+    writing-mode: vertical-lr;
+    position: absolute;
+    height: 300px;
+    left: 15%;
+    top: 1700px;
+    color: aliceblue;
+    font-size: 2rem;
+}
+
+.brief_intro_text3 {
+    writing-mode: vertical-lr;
+    position: absolute;
+    height: 300px;
+    left: 15%;
+    top: 2250px;
+    color: aliceblue;
+    font-size: 2rem;
+}
+
+.brief_intro_text4 {
+    writing-mode: vertical-lr;
+    position: absolute;
+    height: 300px;
+    left: 15%;
+    top: 2850px;
+    color: aliceblue;
+    font-size: 2rem;
+}
+
+.the_aroma_page_bg {
+
+    display: grid;
+    height: 100%;
+    width: 100%;
+
+    padding-top: 160px;
+    opacity: 40%;
+}
+
+.the_aroma_page_tittle {
+
+    font-size: 3rem;
+    position: relative;
+    width: 500px;
+    top: -250px;
+    left: 40%;
+    color: aliceblue;
+    padding-bottom: 15px;
+}
+
+.the_aroma_page_text {
+
+    font-size: 2rem;
+    width: 500px;
+    position: relative;
+    top: -250px;
+    left: 40%;
+    color: aliceblue;
+}
+
+#the_order_page {
+    position: relative;
+    top: -35px;
+}
+
+
+.parser2 {
+    padding-bottom: 20%;
+}
+
+
+#wrap {
+    position: absolute;
+    top: 4250px;
+    margin: 30px;
+}
+
+.messanger_example1 {
+    position: absolute;
+    top: 50px;
+    left: 30px;
+
+
+}
+
+.messanger_example1:hover {
+    opacity: 50%;
+}
+
+.messanger_example2 {
+    position: absolute;
+    top: 50px;
+    left: 420px;
+
+}
+
+.messanger_example2:hover {
+    opacity: 50%;
+}
+
+.messanger_example3 {
+    position: absolute;
+    top: 50px;
+    left: 810px;
+
+}
+
+.messanger_example3:hover {
+    opacity: 50%;
+}
+
+
+.messanger_example4 {
+    position: absolute;
+    top: 50px;
+    left: 1200px;
+
+
+}
+
+.messanger_example4:hover {
+    opacity: 50%;
+}
+
+
+
+.bottom_article_text1 {
+    height: 600px;
+    writing-mode: vertical-lr;
+    position: absolute;
+    top: 300px;
+    left: 110px;
+    font-size: 50px;
+    color: #fff;
+}
+
+.bottom_article_text2 {
+    height: 600px;
+    writing-mode: vertical-lr;
+    position: absolute;
+    top: 300px;
+    left: 500px;
+    font-size: 50px;
+    color: #fff;
+}
+
+.bottom_article_text3 {
+    height: 600px;
+    writing-mode: vertical-lr;
+    position: absolute;
+    top: 300px;
+    left: 900px;
+    font-size: 50px;
+    color: #fff;
+}
+
+.bottom_article_text4 {
+    height: 600px;
+    writing-mode: vertical-lr;
+    position: absolute;
+    top: 300px;
+    left: 1300px;
+    font-size: 50px;
+    color: #fff;
+}
+
+
+
+.foot {
+    position: relative;
+    bottom: -800px;
+    left: 1060px;
+    width: 100%;
+    height: 60px;
+    color: #fff;
+    margin-top: 150px;
+    text-align: right;
+    line-height: 65px;
+}
